@@ -1,0 +1,23 @@
+name: CI-CD cppunit
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    
+    - name: Compile the Code
+      run: g++ -o cppunit_test cppunit_test.cc
+      
+    - name: Run Tests
+      run: ./cppunit_test
+          
+
+        
